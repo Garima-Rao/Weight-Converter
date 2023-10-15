@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+             background-image: linear-gradient(to left,#96fbc4, #f9f586); 
+        }
+        div{
+           position: relative;
+           top: 7rem; 
+           width: 20rem;
+           max-height: 30rem;
+           box-shadow: 5px 6px 4px 6px rgb(196, 191, 191);
+           background-image: linear-gradient(to right,#a8edea, #fed6e3);
+        }
+        .heading{
+            margin: 1rem;
+            background-color: aquamarine;
+        }
+        input{
+            font-size: 1.3rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+            border: 2px solid black(107, 105, 105);
+            box-shadow: 1px 1px rgb(43, 41, 41);
+            height: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+    <div class="container">
+    <h1 class="heading">Weight Converter</h1>
+    <form>
+        <label for="kilo">Kilogram:</label>
+        <br>
+        <input type="number"id="kilo">
+        <br><br>
+        <label for="pounds">Pounds:</label>
+        <br>
+        <input type="number"id="pounds">
+        <br><br>
+        <label for="ounce">Ounce:</label>
+        <br>
+        <input type="number"id="ounce">
+        <br><br>
+    </form>
+</div></center>
+    
+    <script>
+        let kilo=document.getElementById("kilo");
+        let pounds=document.getElementById("pounds");
+        let ounce=document.getElementById("ounce");
+         //tofixed(2) limits the decimals to 2 digits
+        let convertfromkg=()=>{
+            let kg=kilo.value;
+            pounds.value=(kg*2.205).toFixed(2);
+            ounce.value=(kg*35.274).toFixed(2);
+        };
+        let convertfromlb=()=>{
+            let lb=pounds.value;
+            kilo.value=(lb/2.205).toFixed(2);
+            ounce.value=(lb*16).toFixed(2);
+        };
+
+        let convertfromoz=()=>{
+            let oz=ounce.value;
+            kilo.value=(ounce/35.274).toFixed(2);
+            pounds.value=(ounce/16).toFixed(2);
+        };
+        kilo.addEventListener("input",convertfromkg);
+        pounds.addEventListener("input",convertfromlb);
+        ounce.addEventListener("input",convertfromoz);
+    </script>
+
+</body>
+</html>
